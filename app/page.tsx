@@ -26,6 +26,12 @@ export default function Page() {
   const [password, setPassword] = useState('');
 
   useEffect(() => {
+    (async () => {
+      console.log(
+        'has storage access enabled',
+        await document.hasStorageAccess()
+      );
+    })();
     setView(hasSessionCookie() ? 'dashboard' : 'login');
   }, []);
 
